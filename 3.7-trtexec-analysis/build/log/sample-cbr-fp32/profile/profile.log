@@ -1,0 +1,111 @@
+&&&& RUNNING TensorRT.trtexec [TensorRT v8501] # /home/kalfazed/packages/TensorRT-8.5.1.7/bin/trtexec --loadEngine=build/engines/sample-cbr-fp32.engine --warmUp=0 --duration=0 --iterations=20 --noDataTransfers
+[09/04/2023-19:55:56] [I] === Model Options ===
+[09/04/2023-19:55:56] [I] Format: *
+[09/04/2023-19:55:56] [I] Model: 
+[09/04/2023-19:55:56] [I] Output:
+[09/04/2023-19:55:56] [I] === Build Options ===
+[09/04/2023-19:55:56] [I] Max batch: 1
+[09/04/2023-19:55:56] [I] Memory Pools: workspace: default, dlaSRAM: default, dlaLocalDRAM: default, dlaGlobalDRAM: default
+[09/04/2023-19:55:56] [I] minTiming: 1
+[09/04/2023-19:55:56] [I] avgTiming: 8
+[09/04/2023-19:55:56] [I] Precision: FP32
+[09/04/2023-19:55:56] [I] LayerPrecisions: 
+[09/04/2023-19:55:56] [I] Calibration: 
+[09/04/2023-19:55:56] [I] Refit: Disabled
+[09/04/2023-19:55:56] [I] Sparsity: Disabled
+[09/04/2023-19:55:56] [I] Safe mode: Disabled
+[09/04/2023-19:55:56] [I] DirectIO mode: Disabled
+[09/04/2023-19:55:56] [I] Restricted mode: Disabled
+[09/04/2023-19:55:56] [I] Build only: Disabled
+[09/04/2023-19:55:56] [I] Save engine: 
+[09/04/2023-19:55:56] [I] Load engine: build/engines/sample-cbr-fp32.engine
+[09/04/2023-19:55:56] [I] Profiling verbosity: 0
+[09/04/2023-19:55:56] [I] Tactic sources: Using default tactic sources
+[09/04/2023-19:55:56] [I] timingCacheMode: local
+[09/04/2023-19:55:56] [I] timingCacheFile: 
+[09/04/2023-19:55:56] [I] Heuristic: Disabled
+[09/04/2023-19:55:56] [I] Preview Features: Use default preview flags.
+[09/04/2023-19:55:56] [I] Input(s)s format: fp32:CHW
+[09/04/2023-19:55:56] [I] Output(s)s format: fp32:CHW
+[09/04/2023-19:55:56] [I] Input build shapes: model
+[09/04/2023-19:55:56] [I] Input calibration shapes: model
+[09/04/2023-19:55:56] [I] === System Options ===
+[09/04/2023-19:55:56] [I] Device: 0
+[09/04/2023-19:55:56] [I] DLACore: 
+[09/04/2023-19:55:56] [I] Plugins:
+[09/04/2023-19:55:56] [I] === Inference Options ===
+[09/04/2023-19:55:56] [I] Batch: 1
+[09/04/2023-19:55:56] [I] Input inference shapes: model
+[09/04/2023-19:55:56] [I] Iterations: 20
+[09/04/2023-19:55:56] [I] Duration: 0s (+ 0ms warm up)
+[09/04/2023-19:55:56] [I] Sleep time: 0ms
+[09/04/2023-19:55:56] [I] Idle time: 0ms
+[09/04/2023-19:55:56] [I] Streams: 1
+[09/04/2023-19:55:56] [I] ExposeDMA: Disabled
+[09/04/2023-19:55:56] [I] Data transfers: Disabled
+[09/04/2023-19:55:56] [I] Spin-wait: Disabled
+[09/04/2023-19:55:56] [I] Multithreading: Disabled
+[09/04/2023-19:55:56] [I] CUDA Graph: Disabled
+[09/04/2023-19:55:56] [I] Separate profiling: Disabled
+[09/04/2023-19:55:56] [I] Time Deserialize: Disabled
+[09/04/2023-19:55:56] [I] Time Refit: Disabled
+[09/04/2023-19:55:56] [I] NVTX verbosity: 0
+[09/04/2023-19:55:56] [I] Persistent Cache Ratio: 0
+[09/04/2023-19:55:56] [I] Inputs:
+[09/04/2023-19:55:56] [I] === Reporting Options ===
+[09/04/2023-19:55:56] [I] Verbose: Disabled
+[09/04/2023-19:55:56] [I] Averages: 10 inferences
+[09/04/2023-19:55:56] [I] Percentiles: 90,95,99
+[09/04/2023-19:55:56] [I] Dump refittable layers:Disabled
+[09/04/2023-19:55:56] [I] Dump output: Disabled
+[09/04/2023-19:55:56] [I] Profile: Disabled
+[09/04/2023-19:55:56] [I] Export timing to JSON file: 
+[09/04/2023-19:55:56] [I] Export output to JSON file: 
+[09/04/2023-19:55:56] [I] Export profile to JSON file: 
+[09/04/2023-19:55:56] [I] 
+[09/04/2023-19:55:56] [I] === Device Information ===
+[09/04/2023-19:55:56] [I] Selected Device: NVIDIA GeForce RTX 3080
+[09/04/2023-19:55:56] [I] Compute Capability: 8.6
+[09/04/2023-19:55:56] [I] SMs: 68
+[09/04/2023-19:55:56] [I] Compute Clock Rate: 1.74 GHz
+[09/04/2023-19:55:56] [I] Device Global Memory: 9976 MiB
+[09/04/2023-19:55:56] [I] Shared Memory per SM: 100 KiB
+[09/04/2023-19:55:56] [I] Memory Bus Width: 320 bits (ECC disabled)
+[09/04/2023-19:55:56] [I] Memory Clock Rate: 9.501 GHz
+[09/04/2023-19:55:56] [I] 
+[09/04/2023-19:55:56] [I] TensorRT version: 8.5.1
+[09/04/2023-19:55:56] [I] Engine loaded in 0.000107582 sec.
+[09/04/2023-19:55:56] [I] [TRT] Loaded engine size: 0 MiB
+[09/04/2023-19:55:56] [I] [TRT] [MemUsageChange] TensorRT-managed allocation in engine deserialization: CPU +0, GPU +0, now: CPU 0, GPU 0 (MiB)
+[09/04/2023-19:55:56] [I] Engine deserialized in 0.134802 sec.
+[09/04/2023-19:55:56] [I] [TRT] [MemUsageChange] TensorRT-managed allocation in IExecutionContext creation: CPU +0, GPU +0, now: CPU 0, GPU 0 (MiB)
+[09/04/2023-19:55:56] [I] Setting persistentCacheLimit to 0 bytes.
+[09/04/2023-19:55:56] [I] Using random values for input input0
+[09/04/2023-19:55:56] [I] Created input binding for input0 with dimensions 1x3x5x5
+[09/04/2023-19:55:56] [I] Using random values for output output0
+[09/04/2023-19:55:56] [I] Created output binding for output0 with dimensions 1x16x3x3
+[09/04/2023-19:55:56] [I] Starting inference
+[09/04/2023-19:55:56] [I] Warmup completed 0 queries over 0 ms
+[09/04/2023-19:55:56] [I] Timing trace has 20 queries over 0.000333632 s
+[09/04/2023-19:55:56] [I] 
+[09/04/2023-19:55:56] [I] === Trace details ===
+[09/04/2023-19:55:56] [I] Trace averages of 10 runs:
+[09/04/2023-19:55:56] [I] Average on 10 runs - GPU latency: 0.0147552 ms - Host latency: 0.0147552 ms (enqueue 0.0101842 ms)
+[09/04/2023-19:55:56] [I] Average on 10 runs - GPU latency: 0.0107296 ms - Host latency: 0.0107296 ms (enqueue 0.00580511 ms)
+[09/04/2023-19:55:56] [I] 
+[09/04/2023-19:55:56] [I] === Performance summary ===
+[09/04/2023-19:55:56] [I] Throughput: 59946.3 qps
+[09/04/2023-19:55:56] [I] Latency: min = 0.010112 ms, max = 0.047296 ms, mean = 0.0127424 ms, median = 0.01072 ms, percentile(90%) = 0.011968 ms, percentile(95%) = 0.013248 ms, percentile(99%) = 0.047296 ms
+[09/04/2023-19:55:56] [I] Enqueue Time: min = 0.00545102 ms, max = 0.044072 ms, mean = 0.00799466 ms, median = 0.00579101 ms, percentile(90%) = 0.00822502 ms, percentile(95%) = 0.00849599 ms, percentile(99%) = 0.044072 ms
+[09/04/2023-19:55:56] [I] H2D Latency: min = 0 ms, max = 0 ms, mean = 0 ms, median = 0 ms, percentile(90%) = 0 ms, percentile(95%) = 0 ms, percentile(99%) = 0 ms
+[09/04/2023-19:55:56] [I] GPU Compute Time: min = 0.010112 ms, max = 0.047296 ms, mean = 0.0127424 ms, median = 0.01072 ms, percentile(90%) = 0.011968 ms, percentile(95%) = 0.013248 ms, percentile(99%) = 0.047296 ms
+[09/04/2023-19:55:56] [I] D2H Latency: min = 0 ms, max = 0 ms, mean = 0 ms, median = 0 ms, percentile(90%) = 0 ms, percentile(95%) = 0 ms, percentile(99%) = 0 ms
+[09/04/2023-19:55:56] [I] Total Host Walltime: 0.000333632 s
+[09/04/2023-19:55:56] [I] Total GPU Compute Time: 0.000254848 s
+[09/04/2023-19:55:56] [I] Explanations of the performance metrics are printed in the verbose logs.
+[09/04/2023-19:55:56] [I] 
+&&&& PASSED TensorRT.trtexec [TensorRT v8501] # /home/kalfazed/packages/TensorRT-8.5.1.7/bin/trtexec --loadEngine=build/engines/sample-cbr-fp32.engine --warmUp=0 --duration=0 --iterations=20 --noDataTransfers
+Generating '/tmp/nsys-report-995d.qdstrm'
+[1/1] [0%                          ] sample-cbr-fp32.nsys-rep[1/1] [0%                          ] sample-cbr-fp32.nsys-rep[1/1] [1%                          ] sample-cbr-fp32.nsys-rep[1/1] [3%                          ] sample-cbr-fp32.nsys-rep[1/1] [==21%                       ] sample-cbr-fp32.nsys-rep[1/1] [===22%                      ] sample-cbr-fp32.nsys-rep[1/1] [===23%                      ] sample-cbr-fp32.nsys-rep[1/1] [====25%                     ] sample-cbr-fp32.nsys-rep[1/1] [=====31%                    ] sample-cbr-fp32.nsys-rep[1/1] [=======39%                  ] sample-cbr-fp32.nsys-rep[1/1] [========================100%] sample-cbr-fp32.nsys-rep[1/1] [========================100%] sample-cbr-fp32.nsys-rep
+Generated:
+    /home/kalfazed/Code/deep_learning/inference/tensorrt-starter/chapter3-tensorrt-basics-and-onnx/3.7-trtexec-analysis/build/log/sample-cbr-fp32/profile/sample-cbr-fp32.nsys-rep

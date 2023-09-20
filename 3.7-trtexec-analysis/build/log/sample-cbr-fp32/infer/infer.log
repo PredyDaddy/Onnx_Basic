@@ -1,0 +1,106 @@
+&&&& RUNNING TensorRT.trtexec [TensorRT v8501] # trtexec --loadEngine=build/engines/sample-cbr-fp32.engine --dumpOutput --dumpProfile --dumpLayerInfo --exportOutput=build/log/sample-cbr-fp32/infer/infer_output.log --exportProfile=build/log/sample-cbr-fp32/infer/infer_profile.log --exportLayerInfo=build/log/sample-cbr-fp32/infer/infer_layer_info.log --warmUp=200 --iterations=50
+[09/04/2023-19:51:28] [I] === Model Options ===
+[09/04/2023-19:51:28] [I] Format: *
+[09/04/2023-19:51:28] [I] Model: 
+[09/04/2023-19:51:28] [I] Output:
+[09/04/2023-19:51:28] [I] === Build Options ===
+[09/04/2023-19:51:28] [I] Max batch: 1
+[09/04/2023-19:51:28] [I] Memory Pools: workspace: default, dlaSRAM: default, dlaLocalDRAM: default, dlaGlobalDRAM: default
+[09/04/2023-19:51:28] [I] minTiming: 1
+[09/04/2023-19:51:28] [I] avgTiming: 8
+[09/04/2023-19:51:28] [I] Precision: FP32
+[09/04/2023-19:51:28] [I] LayerPrecisions: 
+[09/04/2023-19:51:28] [I] Calibration: 
+[09/04/2023-19:51:28] [I] Refit: Disabled
+[09/04/2023-19:51:28] [I] Sparsity: Disabled
+[09/04/2023-19:51:28] [I] Safe mode: Disabled
+[09/04/2023-19:51:28] [I] DirectIO mode: Disabled
+[09/04/2023-19:51:28] [I] Restricted mode: Disabled
+[09/04/2023-19:51:28] [I] Build only: Disabled
+[09/04/2023-19:51:28] [I] Save engine: 
+[09/04/2023-19:51:28] [I] Load engine: build/engines/sample-cbr-fp32.engine
+[09/04/2023-19:51:28] [I] Profiling verbosity: 0
+[09/04/2023-19:51:28] [I] Tactic sources: Using default tactic sources
+[09/04/2023-19:51:28] [I] timingCacheMode: local
+[09/04/2023-19:51:28] [I] timingCacheFile: 
+[09/04/2023-19:51:28] [I] Heuristic: Disabled
+[09/04/2023-19:51:28] [I] Preview Features: Use default preview flags.
+[09/04/2023-19:51:28] [I] Input(s)s format: fp32:CHW
+[09/04/2023-19:51:28] [I] Output(s)s format: fp32:CHW
+[09/04/2023-19:51:28] [I] Input build shapes: model
+[09/04/2023-19:51:28] [I] Input calibration shapes: model
+[09/04/2023-19:51:28] [I] === System Options ===
+[09/04/2023-19:51:28] [I] Device: 0
+[09/04/2023-19:51:28] [I] DLACore: 
+[09/04/2023-19:51:28] [I] Plugins:
+[09/04/2023-19:51:28] [I] === Inference Options ===
+[09/04/2023-19:51:28] [I] Batch: 1
+[09/04/2023-19:51:28] [I] Input inference shapes: model
+[09/04/2023-19:51:28] [I] Iterations: 50
+[09/04/2023-19:51:28] [I] Duration: 3s (+ 200ms warm up)
+[09/04/2023-19:51:28] [I] Sleep time: 0ms
+[09/04/2023-19:51:28] [I] Idle time: 0ms
+[09/04/2023-19:51:28] [I] Streams: 1
+[09/04/2023-19:51:28] [I] ExposeDMA: Disabled
+[09/04/2023-19:51:28] [I] Data transfers: Enabled
+[09/04/2023-19:51:28] [I] Spin-wait: Disabled
+[09/04/2023-19:51:28] [I] Multithreading: Disabled
+[09/04/2023-19:51:28] [I] CUDA Graph: Disabled
+[09/04/2023-19:51:28] [I] Separate profiling: Disabled
+[09/04/2023-19:51:28] [I] Time Deserialize: Disabled
+[09/04/2023-19:51:28] [I] Time Refit: Disabled
+[09/04/2023-19:51:28] [I] NVTX verbosity: 0
+[09/04/2023-19:51:28] [I] Persistent Cache Ratio: 0
+[09/04/2023-19:51:28] [I] Inputs:
+[09/04/2023-19:51:28] [I] === Reporting Options ===
+[09/04/2023-19:51:28] [I] Verbose: Disabled
+[09/04/2023-19:51:28] [I] Averages: 10 inferences
+[09/04/2023-19:51:28] [I] Percentiles: 90,95,99
+[09/04/2023-19:51:28] [I] Dump refittable layers:Disabled
+[09/04/2023-19:51:28] [I] Dump output: Enabled
+[09/04/2023-19:51:28] [I] Profile: Enabled
+[09/04/2023-19:51:28] [I] Export timing to JSON file: 
+[09/04/2023-19:51:28] [I] Export output to JSON file: build/log/sample-cbr-fp32/infer/infer_output.log
+[09/04/2023-19:51:28] [I] Export profile to JSON file: build/log/sample-cbr-fp32/infer/infer_profile.log
+[09/04/2023-19:51:28] [I] 
+[09/04/2023-19:51:28] [I] === Device Information ===
+[09/04/2023-19:51:28] [I] Selected Device: NVIDIA GeForce RTX 3080
+[09/04/2023-19:51:28] [I] Compute Capability: 8.6
+[09/04/2023-19:51:28] [I] SMs: 68
+[09/04/2023-19:51:28] [I] Compute Clock Rate: 1.74 GHz
+[09/04/2023-19:51:28] [I] Device Global Memory: 9976 MiB
+[09/04/2023-19:51:28] [I] Shared Memory per SM: 100 KiB
+[09/04/2023-19:51:28] [I] Memory Bus Width: 320 bits (ECC disabled)
+[09/04/2023-19:51:28] [I] Memory Clock Rate: 9.501 GHz
+[09/04/2023-19:51:28] [I] 
+[09/04/2023-19:51:28] [I] TensorRT version: 8.5.1
+[09/04/2023-19:51:28] [I] Engine loaded in 0.000137347 sec.
+[09/04/2023-19:51:28] [I] [TRT] Loaded engine size: 0 MiB
+[09/04/2023-19:51:28] [I] [TRT] [MemUsageChange] TensorRT-managed allocation in engine deserialization: CPU +0, GPU +0, now: CPU 0, GPU 0 (MiB)
+[09/04/2023-19:51:28] [I] Engine deserialized in 0.103517 sec.
+[09/04/2023-19:51:28] [I] [TRT] [MemUsageChange] TensorRT-managed allocation in IExecutionContext creation: CPU +0, GPU +0, now: CPU 0, GPU 0 (MiB)
+[09/04/2023-19:51:28] [I] Setting persistentCacheLimit to 0 bytes.
+[09/04/2023-19:51:28] [I] Using random values for input input0
+[09/04/2023-19:51:28] [I] Created input binding for input0 with dimensions 1x3x5x5
+[09/04/2023-19:51:28] [I] Using random values for output output0
+[09/04/2023-19:51:28] [I] Created output binding for output0 with dimensions 1x16x3x3
+[09/04/2023-19:51:28] [I] Layer Information:
+[09/04/2023-19:51:28] [I] Layers:
+Name: /conv1/Conv + /act1/Relu, LayerType: CaskConvolution, Inputs: [ { Name: input0, Location: Device, Dimensions: [1,3,5,5], Format/Datatype: Row major linear FP32 }], Outputs: [ { Name: output0, Location: Device, Dimensions: [1,16,3,3], Format/Datatype: Row major linear FP32 }], ParameterType: Convolution, Kernel: [3,3], PaddingMode: kEXPLICIT_ROUND_DOWN, PrePadding: [0,0], PostPadding: [0,0], Stride: [1,1], Dilation: [1,1], OutMaps: 16, Groups: 1, Weights: {"Type": "Float", "Count": 432}, Bias: {"Type": "Float", "Count": 16}, HasSparseWeights: 0, HasDynamicFilter: 0, HasDynamicBias: 0, HasResidual: 0, ConvXAsActInputIdx: -1, BiasAsActInputIdx: -1, ResAsActInputIdx: -1, Activation: RELU, HasBias: 1, HasReLU: 1, TacticName: sm80_xmma_fprop_implicit_gemm_f32f32_f32f32_f32_nchwkcrs_nchw_tilesize32x32x8_stage3_warpsize1x2x1_g1_ffma_t1r3s3_aligna4_alignc4, TacticValue: 0x8ad32616b1424be4
+
+Bindings:
+input0
+output0
+[09/04/2023-19:51:28] [I] Starting inference
+[09/04/2023-19:51:31] [I] The e2e network timing is not reported since it is inaccurate due to the extra synchronizations when the profiler is enabled.
+[09/04/2023-19:51:31] [I] To show e2e network timing report, add --separateProfileRun to profile layer timing in a separate run or remove --dumpProfile to disable the profiler.
+[09/04/2023-19:51:31] [I] Output Tensors:
+[09/04/2023-19:51:31] [I] output0: (1x16x3x3)
+[09/04/2023-19:51:31] [I] 0.0184911 0.689173 0.518605 0.0630768 0 0.248215 0 0.0557524 0 0.0347914 0.554443 0 0 0 0.741187 0.339148 0 0 0 0 0 0.14337 0 0 0 0 0 0 0.403727 0 0 0 0 0 0 0.443945 0 0 0.150776 0 0.611294 0 0 0.116396 0.32303 0 0.587973 0.708018 0 0 0.555261 0.066792 0 0 0.0876925 0.133202 0 0 0.18597 0.670336 0 0.0237288 0 0.377435 0.358381 0 0 0 0.909536 0 0.33466 0.139952 0 0 0 0 0 0.0679658 0.0715757 0.463161 0.377719 0 0.207796 0.51189 0.629538 0.448179 0.233181 0.206917 0 0 0 0 0 0.0198354 0.0825366 0 0.596279 0 0.646329 0 0 0 0 0.0116421 0 0.411203 0 0.452625 0 0 0.157873 0 0.277615 0 0 0.602454 0.943503 0.162481 0.0752025 0.25932 0 0.432786 0 0 0.178384 0.121855 0.0437545 0.00286761 0 0 0.264932 0 0 0.501004 0.546568 0.119671 0.395995 0.569775 0 0 0 0 0 0
+[09/04/2023-19:51:31] [I] 
+[09/04/2023-19:51:31] [I] === Profile (83989 iterations ) ===
+[09/04/2023-19:51:31] [I]                     Layer   Time (ms)   Avg. Time (ms)   Median Time (ms)   Time %
+[09/04/2023-19:51:31] [I]  /conv1/Conv + /act1/Relu      581.66           0.0069             0.0061    100.0
+[09/04/2023-19:51:31] [I]                     Total      581.66           0.0069             0.0061    100.0
+[09/04/2023-19:51:31] [I] 
+&&&& PASSED TensorRT.trtexec [TensorRT v8501] # trtexec --loadEngine=build/engines/sample-cbr-fp32.engine --dumpOutput --dumpProfile --dumpLayerInfo --exportOutput=build/log/sample-cbr-fp32/infer/infer_output.log --exportProfile=build/log/sample-cbr-fp32/infer/infer_profile.log --exportLayerInfo=build/log/sample-cbr-fp32/infer/infer_layer_info.log --warmUp=200 --iterations=50
