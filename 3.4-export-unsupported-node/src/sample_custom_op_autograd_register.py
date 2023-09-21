@@ -15,7 +15,7 @@ class CustomOp(torch.autograd.Function):
         ctx.save_for_backward(x)
         x = x.clamp(min=0)
         return x / (1 + torch.exp(-x))
-
+    
 customOp = CustomOp.apply
 
 class Model(torch.nn.Module):
@@ -25,7 +25,6 @@ class Model(torch.nn.Module):
     def forward(self, x):
         x = customOp(x)
         return x
-
 
 def validate_onnx():
     input   = torch.rand(1, 50).uniform_(-1, 1).reshape(1, 2, 5, 5)

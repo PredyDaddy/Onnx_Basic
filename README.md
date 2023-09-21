@@ -1,3 +1,4 @@
+
 # Onnx_Basic
 一切开始前先检查自己的onnx版本
 ```bash
@@ -236,3 +237,92 @@ if __name__ == "__main__":
 
 ### 3.8 onnx注册算子(无插件)
 碰到onnx导出的算子不支持还是比较常见的, 解决的办法有从简单到复杂
+- 调整opt的版本, 这里从https://github.com/onnx/onnx/blob/main/docs/Operators.md可以找到哪些算子在哪些opt被支持
+- 更改onnx的算子排列组合
+- 注册算子
+    - 有些是onnx的doc里面有的但是并没有和torch绑定
+    - onnx的doc没有实现的, 后面需要自己写插件去实现相关功能
+- 使用了onnx-surgeon修改onnx, 创建plugin
+
+1. onnx的doc里面有的但是并没有和torch绑定
+```asinh```在torch里面有在onnx文档里面显示opt9以上就支持了, 但是没有跟onnx绑定所以会出错, 因为没有绑定,下面看torch里面写好的绑定案例 
+```bash
+@_onnx_symbolic("aten::reshape_as")
+@symbolic_helper.quantized_args(True)
+@_beartype.beartype
+def reshape_as(g: jit_utils.GraphContext, self, other):
+    shape = g.op("Shape", other)
+    return reshape(g, self, shape)
+```
+这里关注_onnx_symbolic, 这个负责绑定ONNX的aten命名空间下算子上。可以在这里看到asinh是没有写的，我们就自己写一个_onnx_symbolic绑定我们ONNX的计算图(g.op)
+
+```python
+# 创建一个asinh算子的symblic，符号函数，用来登记
+# 符号函数内部调用g.op, 为onnx计算图添加Asinh算子
+#   g: 就是graph，计算图
+#   也就是说，在计算图中添加onnx算子
+#   由于我们已经知道Asinh在onnx是有实现的，所以我们只要在g.op调用这个op的名字就好了
+#   symblic的参数需要与Pytorch的asinh接口函数的参数对齐
+#       def asinh(input: Tensor, *, out: Optional[Tensor]=None) -> Tensor: ...
+def asinh_symbolic(g, input, *, out=None):
+    return g.op("Asinh", input)
+
+# 在这里，将asinh_symbolic这个符号函数，与PyTorch的asinh算子绑定。也就是所谓的“注册算子”
+# asinh是在名为aten的一个c++命名空间下进行实现的
+
+# 那么aten是什么呢？
+# aten是"a Tensor Library"的缩写，是一个实现张量运算的C++库
+register_custom_op_symbolic('aten::asinh', asinh_symbolic, 12)
+```
+
+这里也需要做一个验证, 用onnxruntime和torch去对比, 精度对齐才能说明成功了。
+```python
+def validate_onnx():
+    input = torch.rand(1, 5)
+
+    # PyTorch的推理
+    model = Model()
+    x     = model(input)
+    print("result from Pytorch is :", x)
+
+    # onnxruntime的推理
+    sess  = onnxruntime.InferenceSession('../models/sample-asinh2.onnx')
+    x     = sess.run(None, {'input0': input.numpy()})
+    print("result from onnx is:    ", x)
+```
+
+2. 自定义算子
+
+3. 对于不支持的算子，如何自定义算子
+DeformConv2d并不支持, 但是可以写一个customers先导出再用TensorRT Plugin实现
+```python
+@parse_args("v", "v", "v", "v", "v", "i", "i", "i", "i", "i","i", "i", "i", "none")
+def dcn_symbolic(
+        g,
+        input,
+        weight,
+        offset,
+        mask,
+        bias,
+        stride_h, stride_w,
+        pad_h, pad_w,
+        dil_h, dil_w,
+        n_weight_grps,
+        n_offset_grps,
+        use_mask):
+    return g.op("custom::deform_conv2d", input, offset)
+
+register_custom_op_symbolic("torchvision::deform_conv2d", dcn_symbolic, 12)
+```
+结果图
+
+![在这里插入图片描述](https://img-blog.csdnimg.cn/240c66a835344cb98f2ea11d3aaca5e8.png)
+
+
+### 3.8 onnx-graph-surgeon
+简称gs, 可以理解为是onnx.helper更上层的封装, 类似onnx中symbolic, 有点像CUDA Driver和CUDA Runtime, 比较方便修改创建onnx
+
+1. gs创建的onnx
+```python
+
+```
